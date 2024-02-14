@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/vscF/EffectiveModernCppChinese-master/build",
+  "command": "\"D:\\Study\\how to install c++ in vscode(tuturial)\\mingw64\\bin\\g++.exe\"   -g -o CMakeFiles\\app.dir\\i3_decltype.cpp.obj -c D:\\vscF\\EffectiveModernCppChinese-master\\src\\1.DeducingTypes\\i3_decltype.cpp",
+  "file": "D:/vscF/EffectiveModernCppChinese-master/src/1.DeducingTypes/i3_decltype.cpp",
+  "output": "CMakeFiles/app.dir/i3_decltype.cpp.obj"
+}
+]
