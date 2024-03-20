@@ -1,8 +1,14 @@
 [
 {
-  "directory": "D:/vscF/EffectiveModernCppChinese-master/build",
-  "command": "\"D:\\Study\\how to install c++ in vscode(tuturial)\\mingw64\\bin\\g++.exe\"   -g -o CMakeFiles\\app.dir\\i3_decltype.cpp.obj -c D:\\vscF\\EffectiveModernCppChinese-master\\src\\1.DeducingTypes\\i3_decltype.cpp",
-  "file": "D:/vscF/EffectiveModernCppChinese-master/src/1.DeducingTypes/i3_decltype.cpp",
-  "output": "CMakeFiles/app.dir/i3_decltype.cpp.obj"
+  "directory": "D:/vscF/EffectiveModernCppChinese-master/build/src/1.DeducingTypes",
+  "command": "D:\\TOOLS\\mingw_v11\\mingw_new\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\app.dir\\test.cpp.obj -c D:\\vscF\\EffectiveModernCppChinese-master\\src\\1.DeducingTypes\\test.cpp",
+  "file": "D:/vscF/EffectiveModernCppChinese-master/src/1.DeducingTypes/test.cpp",
+  "output": "src/1.DeducingTypes/CMakeFiles/app.dir/test.cpp.obj"
+},
+{
+  "directory": "D:/vscF/EffectiveModernCppChinese-master/build/src/2.Auto/src",
+  "command": "D:\\TOOLS\\mingw_v11\\mingw_new\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\app2.dir\\lambda.cpp.obj -c D:\\vscF\\EffectiveModernCppChinese-master\\src\\2.Auto\\src\\lambda.cpp",
+  "file": "D:/vscF/EffectiveModernCppChinese-master/src/2.Auto/src/lambda.cpp",
+  "output": "src/2.Auto/src/CMakeFiles/app2.dir/lambda.cpp.obj"
 }
 ]

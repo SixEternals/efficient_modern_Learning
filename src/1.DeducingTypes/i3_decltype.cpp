@@ -45,5 +45,8 @@ int main(int argc, char const *argv[])
 
     decltype(f) g = f;
     std::cout << f(3, 3) << ' ' << g(3, 3) << '\n';
+
+    // TAG:decltype实验4
+    
     return 0;
 }

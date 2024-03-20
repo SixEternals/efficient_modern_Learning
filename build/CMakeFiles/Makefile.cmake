@@ -29,11 +29,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/TOOLS/Cmake/cmake-3.28.1-windows-x86_64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake"
   "D:/TOOLS/Cmake/cmake-3.28.1-windows-x86_64/share/cmake-3.28/Modules/Platform/Windows.cmake"
   "D:/TOOLS/Cmake/cmake-3.28.1-windows-x86_64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake"
+  "D:/vscF/EffectiveModernCppChinese-master/CMakeLists.txt"
   "CMakeFiles/3.28.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.28.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.1/CMakeRCCompiler.cmake"
   "CMakeFiles/3.28.1/CMakeSystem.cmake"
   "D:/vscF/EffectiveModernCppChinese-master/src/1.DeducingTypes/CMakeLists.txt"
+  "D:/vscF/EffectiveModernCppChinese-master/src/2.Auto/src/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -45,9 +47,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/1.DeducingTypes/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/2.Auto/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/app.dir/DependInfo.cmake"
+  "src/1.DeducingTypes/CMakeFiles/app.dir/DependInfo.cmake"
+  "src/2.Auto/src/CMakeFiles/app2.dir/DependInfo.cmake"
   )

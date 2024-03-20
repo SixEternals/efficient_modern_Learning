@@ -56,7 +56,7 @@ RM = D:\TOOLS\Cmake\cmake-3.28.1-windows-x86_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\vscF\EffectiveModernCppChinese-master\src\1.DeducingTypes
+CMAKE_SOURCE_DIR = D:\vscF\EffectiveModernCppChinese-master
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:\vscF\EffectiveModernCppChinese-master\build
@@ -125,32 +125,21 @@ app: cmake_check_build_system
 
 # fast build rule for target.
 app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/build
+	$(MAKE) $(MAKESILENT) -f src\1.DeducingTypes\CMakeFiles\app.dir\build.make src/1.DeducingTypes/CMakeFiles/app.dir/build
 .PHONY : app/fast
 
-i3_decltype.obj: i3_decltype.cpp.obj
-.PHONY : i3_decltype.obj
+#=============================================================================
+# Target rules for targets named app2
 
-# target to build an object file
-i3_decltype.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/i3_decltype.cpp.obj
-.PHONY : i3_decltype.cpp.obj
+# Build rule for target.
+app2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 app2
+.PHONY : app2
 
-i3_decltype.i: i3_decltype.cpp.i
-.PHONY : i3_decltype.i
-
-# target to preprocess a source file
-i3_decltype.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/i3_decltype.cpp.i
-.PHONY : i3_decltype.cpp.i
-
-i3_decltype.s: i3_decltype.cpp.s
-.PHONY : i3_decltype.s
-
-# target to generate assembly for a file
-i3_decltype.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/i3_decltype.cpp.s
-.PHONY : i3_decltype.cpp.s
+# fast build rule for target.
+app2/fast:
+	$(MAKE) $(MAKESILENT) -f src\2.Auto\src\CMakeFiles\app2.dir\build.make src/2.Auto/src/CMakeFiles/app2.dir/build
+.PHONY : app2/fast
 
 # Help Target
 help:
@@ -161,9 +150,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... app
-	@echo ... i3_decltype.obj
-	@echo ... i3_decltype.i
-	@echo ... i3_decltype.s
+	@echo ... app2
 .PHONY : help
 
 

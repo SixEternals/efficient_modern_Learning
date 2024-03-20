@@ -1,0 +1,3 @@
+/mnt/d/vscF/EffectiveModernCppChinese-master/src/3.MovingToModernCpp/build/CMakeFiles/app.dir
+/mnt/d/vscF/EffectiveModernCppChinese-master/src/3.MovingToModernCpp/build/CMakeFiles/edit_cache.dir
+/mnt/d/vscF/EffectiveModernCppChinese-master/src/3.MovingToModernCpp/build/CMakeFiles/rebuild_cache.dir

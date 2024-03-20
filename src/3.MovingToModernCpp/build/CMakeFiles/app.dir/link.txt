@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/app.dir/test4.cpp.o -o app 

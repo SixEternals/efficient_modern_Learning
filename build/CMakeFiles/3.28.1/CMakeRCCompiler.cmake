@@ -1,4 +1,4 @@
-set(CMAKE_RC_COMPILER "D:/Study/how to install c++ in vscode(tuturial)/mingw64/bin/windres.exe")
+set(CMAKE_RC_COMPILER "D:/TOOLS/mingw_v11/mingw_new/ucrt64/bin/windres.exe")
 set(CMAKE_RC_COMPILER_ARG1 "")
 set(CMAKE_RC_COMPILER_LOADED 1)
 set(CMAKE_RC_SOURCE_FILE_EXTENSIONS rc;RC)

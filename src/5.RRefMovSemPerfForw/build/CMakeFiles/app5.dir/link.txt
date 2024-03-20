@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/app5.dir/yuanshen.cpp.o -o app5 

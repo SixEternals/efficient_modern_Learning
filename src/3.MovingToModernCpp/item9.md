@@ -12,7 +12,6 @@ typedef
 ````
 但`typedef`是C++98的东西。虽然它可以在C++11中工作，但是C++11也提供了一个别名声明（*alias declaration*）：
 ````cpp
-using UPtrMapSS =
     std::unique_ptr<std::unordered_map<std::string, std::string>>;
 ````
 由于这里给出的`typedef`和别名声明做的都是完全一样的事情，我们有理由想知道会不会出于一些技术上的原因两者有一个更好。

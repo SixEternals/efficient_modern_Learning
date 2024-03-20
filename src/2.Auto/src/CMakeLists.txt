@@ -1,0 +1,1 @@
+add_executable(app2 lambda.cpp)
