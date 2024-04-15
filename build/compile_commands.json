@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src",
-  "command": "C:\\USEASD~1\\tools\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\app1.dir\\lambda_arr.cpp.obj -c C:\\vsF\\efficient_modern_Learning\\src\\1.DeducingTypes\\src\\lambda_arr.cpp",
-  "file": "C:/vsF/efficient_modern_Learning/src/1.DeducingTypes/src/lambda_arr.cpp",
-  "output": "src/1.DeducingTypes/src/CMakeFiles/app1.dir/lambda_arr.cpp.obj"
-}
-]
