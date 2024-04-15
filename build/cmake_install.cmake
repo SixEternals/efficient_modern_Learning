@@ -1,8 +1,8 @@
-# Install script for directory: D:/vscF/EffectiveModernCppChinese-master
+# Install script for directory: C:/vsF/efficient_modern_Learning
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/efffModernCpp")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/effcpp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,13 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/TOOLS/mingw_v11/mingw_new/ucrt64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/use as D disk/tools/mingw64/bin/objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/vscF/EffectiveModernCppChinese-master/build/src/1.DeducingTypes/cmake_install.cmake")
-  include("D:/vscF/EffectiveModernCppChinese-master/build/src/2.Auto/src/cmake_install.cmake")
+  include("C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/vscF/EffectiveModernCppChinese-master/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/vsF/efficient_modern_Learning/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,8 +1,8 @@
-# Install script for directory: D:/vscF/EffectiveModernCppChinese-master/src/1.DeducingTypes
+# Install script for directory: C:/vsF/efficient_modern_Learning/src/1.DeducingTypes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/efffModernCpp")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/effcpp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/TOOLS/mingw_v11/mingw_new/ucrt64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/use as D disk/tools/mingw64/bin/objdump.exe")
 endif()
 

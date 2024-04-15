@@ -1,0 +1,1 @@
+add_executable(app1 lambda_arr.cpp)

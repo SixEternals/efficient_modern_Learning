@@ -1,8 +1,5 @@
-D:/vscF/EffectiveModernCppChinese-master/build/CMakeFiles/edit_cache.dir
-D:/vscF/EffectiveModernCppChinese-master/build/CMakeFiles/rebuild_cache.dir
-D:/vscF/EffectiveModernCppChinese-master/build/src/1.DeducingTypes/CMakeFiles/app.dir
-D:/vscF/EffectiveModernCppChinese-master/build/src/1.DeducingTypes/CMakeFiles/edit_cache.dir
-D:/vscF/EffectiveModernCppChinese-master/build/src/1.DeducingTypes/CMakeFiles/rebuild_cache.dir
-D:/vscF/EffectiveModernCppChinese-master/build/src/2.Auto/src/CMakeFiles/app2.dir
-D:/vscF/EffectiveModernCppChinese-master/build/src/2.Auto/src/CMakeFiles/edit_cache.dir
-D:/vscF/EffectiveModernCppChinese-master/build/src/2.Auto/src/CMakeFiles/rebuild_cache.dir
+C:/vsF/efficient_modern_Learning/build/CMakeFiles/edit_cache.dir
+C:/vsF/efficient_modern_Learning/build/CMakeFiles/rebuild_cache.dir
+C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/CMakeFiles/app1.dir
+C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/CMakeFiles/edit_cache.dir
+C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/CMakeFiles/rebuild_cache.dir
