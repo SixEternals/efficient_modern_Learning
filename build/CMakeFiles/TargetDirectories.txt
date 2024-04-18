@@ -3,3 +3,6 @@ C:/vsF/efficient_modern_Learning/build/CMakeFiles/rebuild_cache.dir
 C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/CMakeFiles/app1.dir
 C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/CMakeFiles/edit_cache.dir
 C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/CMakeFiles/rebuild_cache.dir
+C:/vsF/efficient_modern_Learning/build/src/3.MovingToModernCpp/src/CMakeFiles/app3.dir
+C:/vsF/efficient_modern_Learning/build/src/3.MovingToModernCpp/src/CMakeFiles/edit_cache.dir
+C:/vsF/efficient_modern_Learning/build/src/3.MovingToModernCpp/src/CMakeFiles/rebuild_cache.dir

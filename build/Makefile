@@ -128,6 +128,19 @@ app1/fast:
 	$(MAKE) $(MAKESILENT) -f src\1.DeducingTypes\src\CMakeFiles\app1.dir\build.make src/1.DeducingTypes/src/CMakeFiles/app1.dir/build
 .PHONY : app1/fast
 
+#=============================================================================
+# Target rules for targets named app3
+
+# Build rule for target.
+app3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 app3
+.PHONY : app3
+
+# fast build rule for target.
+app3/fast:
+	$(MAKE) $(MAKESILENT) -f src\3.MovingToModernCpp\src\CMakeFiles\app3.dir\build.make src/3.MovingToModernCpp/src/CMakeFiles/app3.dir/build
+.PHONY : app3/fast
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -137,6 +150,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... app1
+	@echo ... app3
 .PHONY : help
 
 

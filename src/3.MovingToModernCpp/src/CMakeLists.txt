@@ -1,0 +1,1 @@
+add_executable(app3 15_constexpr.cpp)

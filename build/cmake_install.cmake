@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/vsF/efficient_modern_Learning/build/src/1.DeducingTypes/src/cmake_install.cmake")
+  include("C:/vsF/efficient_modern_Learning/build/src/3.MovingToModernCpp/src/cmake_install.cmake")
 
 endif()
 

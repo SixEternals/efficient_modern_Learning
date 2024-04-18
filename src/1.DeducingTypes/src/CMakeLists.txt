@@ -1,1 +1,1 @@
-add_executable(app1 lambda_arr.cpp)
+add_executable(app1 i1_dudction.cpp)

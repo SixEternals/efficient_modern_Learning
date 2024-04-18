@@ -35,6 +35,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.29.0/CMakeRCCompiler.cmake"
   "CMakeFiles/3.29.0/CMakeSystem.cmake"
   "C:/vsF/efficient_modern_Learning/src/1.DeducingTypes/src/CMakeLists.txt"
+  "C:/vsF/efficient_modern_Learning/src/3.MovingToModernCpp/src/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -47,9 +48,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/1.DeducingTypes/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/3.MovingToModernCpp/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "src/1.DeducingTypes/src/CMakeFiles/app1.dir/DependInfo.cmake"
+  "src/3.MovingToModernCpp/src/CMakeFiles/app3.dir/DependInfo.cmake"
   )
