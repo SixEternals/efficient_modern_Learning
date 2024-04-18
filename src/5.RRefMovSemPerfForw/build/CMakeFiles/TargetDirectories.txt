@@ -1,3 +1,0 @@
-/mnt/d/vscF/EffectiveModernCppChinese-master/src/5.RRefMovSemPerfForw/build/CMakeFiles/app5.dir
-/mnt/d/vscF/EffectiveModernCppChinese-master/src/5.RRefMovSemPerfForw/build/CMakeFiles/edit_cache.dir
-/mnt/d/vscF/EffectiveModernCppChinese-master/src/5.RRefMovSemPerfForw/build/CMakeFiles/rebuild_cache.dir
