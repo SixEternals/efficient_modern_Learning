@@ -48,12 +48,66 @@ constexpr int k=j;
 
 所以多用**constexpr**
 
-## 多线程
+### 用处 1：编译时常量
 
-创建 constexpr 对象还有一个额外的优点，即它们在创建任何线程之前就被初始化了。因此，它们的访问永远不需要任何同步。
-意味着你不需要使用任何形式的同步机制（如互斥锁）来保护对这些对象的访问，因为它们的状态在程序开始运行时就已经固定不变。
+```cpp
+constexpr int MinValue = 1;
+constexpr double Pi = 3.14159;
+```
 
-## constexpr 在函数中的用处
+### 用处 2：针对函数，可得到在编译期间/运行期都可运行的函数
+
+```cpp
+constexpr fib(constexpr a){
+
+}
+```
+
+### 用处 3：`constexpr`标记构造函数运行在编译器创建对象
+
+前提！！！：构造函数对象所有参数都是`constexpr`表达式
+
+```cpp
+class ConstRxprTest
+{
+public:
+    constexpr ConstRxprTest(int v) : val(v) {}
+
+private:
+    int val;
+};
+```
+
+### 用处 4：if constexpr
+
+C++17 引入`if constexpr` 它允许在编译时根据条件选择分支
+
+```cpp
+template<bool flag, typename T>
+void myFunction(T param) {
+    if constexpr (flag) {
+        // 这段代码仅在 flag 为 true 时编译
+        std::cout << "Flag is true, doing something with " << param << '\n';
+    } else {
+        // 这段代码仅在 flag 为 false 时编译
+        std::cout << "Flag is false, doing something else with " << param << '\n';
+    }
+}
+
+int main() {
+    myFunction<true>(10);  // 仅会编译并运行 if constexpr 中的代码
+    myFunction<false>(20); // 仅会编译并运行 else 中的代码
+}
+```
+
+> ======================================
+
+### 用处 5：多线程
+
+它们在创建任何线程之前就被初始化了。故它们的访问永远不需要任何同步。
+意味着你不需要使用任何形式的*同步机制*（如互斥锁）来保护对这些对象的访问
+
+### 用处 6：constexpr 在函数中的用处
 
 首先要知道它在标记函数之后有什么特性：
 
@@ -61,11 +115,7 @@ constexpr int k=j;
 2. 若实参里包含运行期值时 则它会像普通函数一样运算 返回运行期值
    也就是说不需要准备两个重载函数 一个重载接收编译期参数 另外一个重载接受运行期参数 `constexpr`来了全做了 一把子精简代码了
 
-### 优化某些简单的算法
-
-1. 比如计算简单的算法//计算圆半径...
-
-### 结合元编程 来写重载函数
+### 用处 7：结合元编程 来写重载函数
 
 (我天 又是元神 好难)
 
@@ -110,7 +160,7 @@ int main(int argc, char const *argv[])
 Note that while at compile-time they are the same, but at runtime, f<0> and f<1> are two different animals with different signatures.
 请注意，在编译时，它们是相同的，但在运行时， f<0> 和 f<1> 是两个不同的动物，具有不同的签名。
 
-### 避免重载 2
+### 用处 8：避免重载 2
 
 这个我感觉平常用不上 还是等工作时遇到再继续研究吧 详情请看链接
 [参考链接](https://iamsorush.com/posts/cpp-constexpr/#case-study-3)
@@ -119,3 +169,4 @@ Note that while at compile-time they are the same, but at runtime, f<0> and f<1>
 
 本条款建议尽量使用`constexpr`
 学完上面的就知道了 被`constexpr`修饰的变量和函数 的适用范围会比没被修饰的大得多
+其好处就是通过在编译器中进行一些简单的运行 并将值存储在只读的区域 从而减少运行时间来优化(小缺点就是编译时间变长了 我寻思这个副作用也不差吧)

@@ -64,11 +64,34 @@ constexpr size_t getArraySize(T [&](N)) noexecpt
 }
 
 // 使用
-constexpr auto size = getArraySize(arr);
+int arr[7];
+constexpr auto size = getArraySize(arr); // 获取长度
+int mappedVals[arraySize(keyVals)];    // 也可以这样使用
+std::array<int, arraySize(keyVals)> mappedVals; // √
 ```
 
 [constexpr 笔记](../../3.MovingToModernCpp/myNote/15_constexpr.md)
 
-[noexpt 笔记]()
+[noexecpt 笔记](../../3.MovingToModernCpp/myNote/14_noexcept.md)
+
+看完上面两个笔记之后再解释一遍
+在 c11 版本 函数体中只能有唯一一条返回语句 所以假设上述代码用的是 c11 那就不能写多余的语句也不能对元素进行修改 而在 c14 后放款了这一规定
+arraySize 是一个固定的数值 也很适合设置为`constexpr` 存放在只读区域 提高了读取速度
+
+而这个操作也是叶子操作 而且并没有涉及到资源的 alloc 不可能抛出错误 故使用`noexcept`
 
 ## 函数实参
+
+同上 声明为
+
+```cpp
+void func(int, double);
+
+template<typename T>
+void f(T & param);
+
+// 使用
+f(func);
+```
+
+在函数里加一个引用即可 如果去掉那就和数组实参的结果一样 函数类型会退化为一个函数指针

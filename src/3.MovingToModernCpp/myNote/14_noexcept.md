@@ -3,28 +3,6 @@
 版本：C11
 noexcept 运算符是一个编译时运算符
 
-## 什么时候使用 noexcept 操作符？
-
-1. You have the guarantee that the function will not throw any exception in any case. 你可以保证函数在任何情况下都不会抛出任何异常。
-
-2. You want to optimize the performance by allowing the compiler to skip the process of exception handling which leads to faster execution of the program. 您希望通过允许编译器跳过异常处理过程来优化性能，从而加快程序的执行速度。
-
-3. **正确性优先**：在确保函数真正不会抛出任何异常的情况下才使用 noexcept。如果仅为了优化而错误地使用 noexcept，可能会隐藏异常，导致程序复杂化和难以维护。
-
-### 好处
-
-1. 可读性强 和`constexpr`一样 程序员一眼就知道这个函数想要干嘛
-2. 不仅有助于提高代码的异常安全性和效率，而且允许编译器生成更优化的代码。
-
-## 什么时候不使用 noexcept 操作符？
-
-1. Your function can throw exceptions, or if you’re not sure about its exception safety. 你的函数可以抛出异常，或者如果你不确定它的异常安全性。
-2. When you are dealing with destructors as noexcept destructor can lead to undefined behavior, when exceptions are thrown during object destruction. 当你处理析构函数时，当对象析构过程中抛出异常时，析构函数会导致未定义的行为。
-
-### 滥用弊端
-
-当函数被标记`noexcept`时 如果真的出现了异常 那么程序直接终止 异常日志不会被打印 相当于你也不知道哪里错了
-
 ## 使用`noexcept`理由 1--确保函数不会抛出异常后 添加`noexcept`来优化
 
 前提：保证函数体内绝对没有异常被抛出
@@ -107,6 +85,62 @@ void safeMove(T& from, T& to) {
 
 总结来说，是否使用 std::move_if_noexcept 取决于您的具体需求和上下文。在一些通用编程场景中，它提供了一种安全处理移动操作的方式。在其他情况下，如 MyType 的移动构造函数示例中，如果已知特定类型支持 noexcept 移动，您可能会直接使用 std::swap 或直接赋值来实现移动语义。
 
-## swap 函数
+## stl::swap 函数和 std::容器的 swap
 
 上面引入已经说到了 `swap`本身就保证了抛出安全
+
+容器的自定义 swap
+对于 STL 容器，如 std::vector，它们通常会提供自己的 swap 成员函数，这些函数通常比通用 swap 更高效，因为它们可以利用容器内部的数据结构和算法来执行交换操作。
+
+例如，std::vector 的 swap 成员函数会交换两个向量的内部数据指针、分配器和容量等成员，而不需要逐个交换向量的每个元素。
+
+```cpp
+template <class T, class Allocator>
+void vector<T, Allocator>::swap(vector<T, Allocator>& other) {
+using std::swap;
+swap(this->data*, other.data*);
+swap(this->size*, other.size*);
+swap(this->capacity*, other.capacity*);
+// ... 可能还有其他成员的交换 ...
+}
+```
+
+在这个例子中，using std::swap;语句使得成员函数可以使用 STL 的通用 swap 函数来交换成员变量。这样做的好处是，如果成员变量的类型也有特别的 swap 函数，STL 的通用 swap 会调用那个特别的版本，从而提高交换的效率。
+
+## 到底什么时候能用？
+
+1. 给叶子函数添加绝对是万无一失(简单的 leaf function，像是 int，pointer 这类的 getter，setter 用 noexcept。因为不可能出错)
+
+2. 用在析构函数 如果连析构函数都抛出异常了 那程序本来就会因为内存释放失败而终止 而不是因为你标记了`noexcept`而终止 所以说用了也没问题
+
+3. 若一个函数调用了一个可能会抛出异常的函数 那就不要用`noexcept`
+
+4. move constructor/assignment operator 如果不会抛出异常，一定用 noexcept。(这个例子为 vector 的移动构造函数 什么已经有了)
+
+5. 默认不使用 很多时候都预测不了看不见的 allocation。
+   如果乱加 可能会导致以后程序莫名其妙终止了又看不到错误日志 那就连 bug 都找不到在哪了
+
+6. `noexcept`属于优化项 在开发阶段如果做到上面的 1 2 4 点后就基本可以不用写了。等到优化阶段再考虑。
+
+7. 比较适合底层库作者使用：
+   ① 用的地方多，性能能抠一点是一点，一点改进可能被放大好多倍
+   ② 同样因为用的地方多，如果错了，问题容易暴露
+   ③ 处于调用栈的底层，环境比较可控，功能更单一，容易实施
+   ④ 面对的变更比较少，为此在上面花时间去做优化可能值得
+
+### 好处
+
+1. 可读性强 和`constexpr`一样 程序员一眼就知道这个函数想要干嘛
+2. 不仅有助于提高代码的异常安全性和效率，而且允许编译器生成更优化的代码。
+3. 减小编译后的文件体积
+
+### 滥用弊端
+
+1. 当函数被标记`noexcept`时 如果真的出现了异常 那么程序直接终止 异常日志不会被打印 相当于你也不知道哪里错了
+2. 通常情况下，在广泛使用 STL 容器，智能指针的现代 C++风格下，编译器能够推导自动生成的析构函数，move 构造和赋值运算符的 noexcept 属性
+3. noexcept 判断比较复杂，业务代码程序员更关注业务逻辑本身，而且需求变化大，代码可能很复杂，人工判断很容易出错。
+4. noexcept 会影响接口的灵活性，比如基类某个虚函数设置为 noexcept，派生类覆盖虚函数时也必须遵守，这个有些情况下难以保证
+5. noexcept 用错了危害很大，会强行调 std::terminate，本来能处理的都没有处理机会了就像异常规格的存在版本问题一样，如果一个函数从 noexcept 变为 noexcept(false)，调用处可能也需要跟着改动
+6. C++17 后，noexcept 还影响了函数的签名，进一步影响了代码的复杂性和兼容性
+
+[参考链接](https://www.zhihu.com/question/30950837)
