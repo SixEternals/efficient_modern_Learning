@@ -131,3 +131,19 @@ bool *pb =&v[0];
 6. 代理类的隐式转换
    std::vector<bool>::reference：存在一个从 std::vector<bool>::reference 到 bool 的隐式转换。
    自定义代理类：对于自定义的代理类，如矩阵运算中的代理类，也可以定义隐式转换，允许代理对象在表达式中使用，并在需要时转换为最终结果类型。
+
+7. （拓展 可不看）[自定义代理类](../../9.expertPart/9.3代理类.md)
+
+- 实际上， 很多开发者都是在跟踪一些令人困惑的复杂问题或在单元测试出错进行调试时才看到代理类的使用。
+
+但是学完上一章 我们了解到很多`auto`好处 那就要因为代理类而放弃它吗？不！遇到代理类我们还能用`static_cast`
+
+```cpp
+auto highPriority = static_cast<bool>(features(w)[5]);
+auto sum = static_cast<Matrix>(m1 + m2 + m3 + m4);
+```
+
+**请记住：**
+
+- 不可见的代理类可能会使`auto`从表达式中推导出“错误的”类型
+- 显式类型初始器惯用法强制`auto`推导出你想要的结果
