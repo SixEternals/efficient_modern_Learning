@@ -1,1 +1,0 @@
-add_executable(app4 18sPointer.cpp)

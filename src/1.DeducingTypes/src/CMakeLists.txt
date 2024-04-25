@@ -1,1 +1,1 @@
-add_executable(app1 i4.cpp)
+add_executable(app1 i2_auto_dudction.cpp)
