@@ -3,6 +3,7 @@
 #include <string>
 #include <assert.h>
 using namespace std;
+// https://www.cnblogs.com/lzm-cn/p/9168439.html
 class Animal
 {
 public:
@@ -221,46 +222,91 @@ private:
 class RefCount
 {
 public:
-    RefCount() : _count(new int(1)) {}
-    ~RefCount() = default;
+    // 默认构造函数||拷贝构造
+    RefCount() : _count(new int(1)) {} // 默认有一个
+    // RefCount(const RefCount &other)  {} // 想不到有什么用
 
-    void addRef() { ++*_count; }
-    bool releaseRef() { return --*_count == 0; }
-    bool isUnique() const { return *_count == 1; }
+    // add
+    void add(RefCount &other)
+    {
+        (*_count)++;
+        if (--*(other._count) == 0)
+        {
+            delete other._count;
+            other._count = nullptr;
+        }
+    }
+    // get RefCount
+    RefCount &getRefCount() { return *this; }
+    // 获取个数
+    int getRefs()
+    {
+        if (_count == nullptr)
+        {
+            return 0;
+        }
+        return *_count;
+    }
+    // unique
+    bool isUnique() { return *_count == 1; }
+    // delete
+    ~RefCount()
+    {
+        if (--*_count == 0)
+        {
+            delete _count;
+            _count = nullptr;
+        }
+    }
 
 private:
     int *_count;
+};
+
+class test
+{
+public:
+    test() : var(0), name("none") {}
+    test(const test &other)
+    {
+        this->name = other.name;
+        this->var = other.var;
+    }
+
+    int getVar() const { return var; }
+    string getName() const { return name; }
+
+private:
+    int var;
+    string name;
+};
+class testRef
+{
+public:
+    testRef() : t(new test()), _count(new RefCount()) {}
+
+    // 拷贝
+    testRef(const testRef &other) : t(other.t), _count(other._count) {}
+
+    // add
+    void add(const testRef &other)
+    {
+        this->_count->add(other._count->getRefCount());
+    }
+
+    int getCount() const { return _count->getRefs(); }
+
+private:
+    test *t;
+    RefCount *_count;
 };
 
 // MyString 代理类
 class MyStringProxy
 {
 public:
-    MyStringProxy() : _ptr(new MyString()), _refCount(new RefCount()) {}
-
-    MyStringProxy(const MyString &other) : _ptr(new MyString(other)), _refCount(new RefCount()) {}
-
-    MyStringProxy(const MyStringProxy &other)
-        : _ptr(other._ptr), _refCount(other._refCount)
-    {
-        _refCount->addRef();
-    }
-
-    ~MyStringProxy()
-    {
-        if (_refCount->releaseRef())
-        {
-            delete _ptr;
-            delete _refCount;
-        }
-    }
-
-private:
-    MyString *_ptr;
-    RefCount *_refCount; // 计数类
 };
-
-int main(int argc, char const *argv[])
+void func1()
 {
     Cat cat;
     Dog dog;
@@ -287,6 +333,19 @@ int main(int argc, char const *argv[])
 
     obj1 = obj2;
     cout << obj1 << endl;
+}
+int main(int argc, char const *argv[])
+{
+    // func1();
+
+    testRef t1;
+    testRef t2;
+    cout << "t1.count: " << t1.getCount() << endl;
+    // cout << t2.getCount() << endl;
+
+    t1.add(t2); // t1++ t2--
+    cout << "t1.count: " << t1.getCount() << endl;
+    cout << "t2.count: " << t2.getCount() << endl;
 
     return 0;
 }

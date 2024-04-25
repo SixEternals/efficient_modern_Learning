@@ -8,3 +8,4 @@ add_subdirectory(src/2.Auto/src)
 
 add_subdirectory(src/3.MovingToModernCpp/src)
 add_subdirectory(src/9.expertPart/src)
+add_subdirectory(src/4.SmartPointers/src)
