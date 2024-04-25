@@ -1,1 +1,1 @@
-add_executable(app3 ex_initilizer.cpp)
+add_executable(app3 15_constexpr.cpp)

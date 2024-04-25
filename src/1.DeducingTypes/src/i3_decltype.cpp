@@ -23,8 +23,13 @@ decltype(auto) getRefFwdGood(const int *p) { return getRef(p); }
 static_assert(std::is_same<decltype(getRefFwdGood), const int &(const int *)>::value,
               "Returning decltype(auto) perfectly forwards the return type."); // 通过 说明使用decltype(auto)才能返回正确的 想要返回的类型：const int &
 
-void func3()
+int main(int argc, char const *argv[])
 {
+    // TAG:is_same 前置知识
+    // cout << is_same<int, int>::value << endl;    // true
+    // cout << is_same<int, double>::value << endl; // false
+    // cout << is_same<int, double>::value_type << endl; // invalid 类型名无法打印
+
     // TAG:decltype实验3
     int i = 33;
     decltype(i) j = i * 2;
@@ -40,56 +45,8 @@ void func3()
 
     decltype(f) g = f;
     std::cout << f(3, 3) << ' ' << g(3, 3) << '\n';
-}
 
-// template <typename T>
-// auto testfunc1()
-//     -> decltype(x)
-// {
-//     int x{0};
-//     return x;
-// }
-// template <typename T>
-// auto testfunc2()
-//     -> decltype(x)
-// {
-//     int x{0};
-//     return (x);
-// }
-
-// template <typename T>
-// decltype(auto)
-// testfunc2(T a)
-// {
-//     int x{0};
-//     return x;
-// }
-// template <typename T>
-// decltype(auto)
-// testfunc3(T a)
-// {
-//     int x{0};
-//     return (x);
-// }
-
-int main(int argc, char const *argv[])
-{
-    // TAG:is_same 前置知识
-    // cout << is_same<int, int>::value << endl;    // true
-    // cout << is_same<int, double>::value << endl; // false
-    // cout << is_same<int, double>::value_type << endl; // invalid 类型名无法打印
-
-    // func3(); // 实验3
-
-    // 实验4
-    int x{0};
-    int(y){0};
-    int((z)){0};
-
-    // decltype((x)) x1{0}; // 报错！ 这是左值引用 不能用右值初始化
-    decltype((x)) x2{x};
-
-    // auto res = testfunc1();
-    cout << "stop" << endl;
+    // TAG:decltype实验4
+    
     return 0;
 }
